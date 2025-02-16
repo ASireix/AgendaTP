@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
@@ -26,7 +27,12 @@ class CalendarAdapter(private val context: MainActivity, private val days: List<
         fun bind(day: String) {
             dayTextView.text = day
             itemView.setOnClickListener {
-                Toast.makeText(context, "Ajouter un événement pour le $day", Toast.LENGTH_SHORT).show()
+                context.updateEvent(day, dayTextView)
+            }
+            itemView.setOnLongClickListener {
+                context.deleteEvent(day)
+                Toast.makeText(context, "Événement supprimé pour le $day", Toast.LENGTH_SHORT).show()
+                true
             }
         }
     }

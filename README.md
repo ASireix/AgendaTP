@@ -1,1 +1,1 @@
-[![Présentation](https://img.youtube.com/vi/SeC8_2tV-fY/maxresdefault.jpg)](https://www.youtube.com/watch?v=SeC8_2tV-fY)
+[![Présentation](https://img.youtube.com/vi/YGlpJ0gXBp8/maxresdefault.jpg)](https://www.youtube.com/watch?v=YGlpJ0gXBp8)

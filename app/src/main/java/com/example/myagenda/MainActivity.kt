@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val events = mutableMapOf<String, String>()
     private var selectedDay: String? = null
     private var selectedView: TextView? = null
+    private val dayViews = mutableMapOf<String, TextView>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         selectedView = view
         selectedView?.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_blue_light))
         eventEditText.setText(events[day] ?: "")
+        dayViews[day] = view
     }
 
     fun saveEvent() {
@@ -73,9 +75,11 @@ class MainActivity : AppCompatActivity() {
 
     fun deleteEvent(day: String) {
         events.remove(day)
+        dayViews[day]?.let {
+            it.setBackgroundColor(ContextCompat.getColor(this, android.R.color.darker_gray))
+        }
         if (selectedDay == day) {
             eventEditText.setText("")
-            selectedView?.setBackgroundColor(ContextCompat.getColor(this, android.R.color.transparent))
             selectedDay = null
             selectedView = null
         }
